@@ -10,7 +10,7 @@ import rateLimit from "express-rate-limit";
 
 import path from 'path';
 import { fileURLToPath } from 'url';
-
+connectDB();
 
 const app = express();
 
@@ -51,7 +51,7 @@ const globalLimiter = rateLimit({
 // });
 
 const strictLimiter = rateLimit({
-  windowMs: 1 * 60 * 1000,
+  windowMs: 60 * 1000,
   max: 50,
 });
 
@@ -90,6 +90,6 @@ app.get('*', (req, res) => {
 
 
 app.listen(5000, () => {
-  connectDB();
+
   console.log("Server started on port 5000");
 });
