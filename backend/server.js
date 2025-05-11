@@ -8,7 +8,8 @@ import helmet from "helmet";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
 
-
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 const app = express();
@@ -63,8 +64,7 @@ app.use("/categories", categoryRoutes);
 
 // Get the current directory
 
-import path from 'path';
-import { fileURLToPath } from 'url';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
