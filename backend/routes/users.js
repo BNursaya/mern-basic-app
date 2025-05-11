@@ -5,7 +5,8 @@ import User from "../models/users.js";
 import RevokedToken from "../models/revokedTokens.js";
 
 import { authenticateToken, adminOnly } from "../middleware/auth.js";
-
+import path from 'path';
+import { fileURLToPath } from 'url';
 const router = express.Router();
 
 // Login endpoint
@@ -82,8 +83,7 @@ router.get('/admin', authenticateToken, adminOnly, (req, res) => {
 });
 
 
-import path from 'path';
-import { fileURLToPath } from 'url';
+
 
 // Get the current directory
 const __filename = fileURLToPath(import.meta.url);

@@ -17,7 +17,7 @@ const Cart = () => {
     const stored = localStorage.getItem('cart');
     if (stored) {
       const parsedCart = JSON.parse(stored);
-      fetch('http://localhost:5000/products') // ⬅️ API-ға қарай өзгертіп қой
+      fetch(`${API_BASE_URL}/products`) // ⬅️ API-ға қарай өзгертіп қой
         .then(res => res.json())
         .then(data => {
           if (data.success) {
