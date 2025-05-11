@@ -45,10 +45,10 @@ const globalLimiter = rateLimit({
   max: 100, // Limit each IP to 100 requests per windowMs
 });
 
-const authLimiter = rateLimit({
-  windowMs: 5 * 60 * 1000,
-  max: 50,
-});
+// const authLimiter = rateLimit({
+//   windowMs: 5 * 60 * 1000,
+//   max: 50,
+// });
 
 const strictLimiter = rateLimit({
   windowMs: 1 * 60 * 1000,
