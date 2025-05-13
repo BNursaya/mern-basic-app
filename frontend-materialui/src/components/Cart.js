@@ -7,6 +7,8 @@ import { Remove, Add, ShoppingCart } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
+import API_BASE_URL from '../config';
+
 
 const Cart = () => {
   const [cart, setCart] = useState([]);

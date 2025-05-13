@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
 
 
    checkAuth();
- }, [token]);
+ }, [token, username]);
 
 
  const login = (newToken, newUsername) => {

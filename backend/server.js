@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import { connectDB } from "./db/conn.js";
 import productRoutes from "./routes/products.js";
@@ -29,8 +32,8 @@ app.use(
         styleSrc: ["'self'", "'unsafe-inline'"],
         imgSrc: ["'self'", "data:", "*"],
         fontSrc: ["'self'", "data:"],
-        connectSrc: ["'self'", "http://localhost:5000"],
-        mediaSrc: ["'self'", "http://localhost:5000"],
+        connectSrc: ["'self'", "http://localhost:5001"],
+        mediaSrc: ["'self'", "http://localhost:5001"],
         objectSrc: ["'none'"]
       },
     },
@@ -89,7 +92,7 @@ app.get('*', (req, res) => {
 // });
 
 
-app.listen(5000, () => {
+app.listen(5001, () => {
 
-  console.log("Server started on port 5000");
+  console.log("Server started on port 5001");
 });

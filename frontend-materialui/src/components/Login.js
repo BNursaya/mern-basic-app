@@ -27,6 +27,7 @@ const Login = () => {
     setIsLoading(true);
 
     try {
+      console.log("API:", API_BASE_URL);
       const response = await fetch(`${API_BASE_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

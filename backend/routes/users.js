@@ -86,17 +86,17 @@ router.get('/admin', authenticateToken, adminOnly, (req, res) => {
 
 
 // Get the current directory
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 // Define specific routes for HTML files
-router.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/login.html'));
-});
-
-router.get('/index', authenticateToken, adminOnly, (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/index.html'));
-});
+// router.get('/login', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../../frontend/login.html'));
+// });
+//
+// router.get('/index', authenticateToken, adminOnly, (req, res) => {
+//   res.sendFile(path.join(__dirname, '../../frontend/index.html'));
+// });
 
 
 export default router;

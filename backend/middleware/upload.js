@@ -5,22 +5,30 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-//__filename — ағымдағы файлдың толық жолы.
-//__dirname — осы файл орналасқан папка жолы.
-
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination(req, file, cb) {
     cb(null, path.join(__dirname, "../uploads"));
   },
-  filename: function (req, file, cb) {
+  filename(req, file, cb) {
     const uniqueName = Date.now() + path.extname(file.originalname);
     cb(null, uniqueName);
   }
 });
 
-//destination — файл қайда сақталады.
-//filename — файл атауы қалай қойылады.
+const upload = multer({
+  storage,
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter(req, file, cb) {
+    const types = /jpeg|jpg|png|gif/;
+    const extname = types.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = types.test(file.mimetype);
 
-const upload = multer({ storage });
+    if (extname && mimetype) {
+      cb(null, true);
+    } else {
+      cb(new Error("Тек сурет файлдарын ғана жүктеуге болады"));
+    }
+  }
+});
 
 export default upload;
