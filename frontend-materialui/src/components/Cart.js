@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {
   Container, Typography, Box, IconButton, Button, Card, CardContent,
   AppBar, Toolbar, Badge
 } from '@mui/material';
 import { Remove, Add, ShoppingCart } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import API_BASE_URL from '../config';
-
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -19,7 +17,7 @@ const Cart = () => {
     const stored = localStorage.getItem('cart');
     if (stored) {
       const parsedCart = JSON.parse(stored);
-      fetch(`${API_BASE_URL}/products`) // ⬅️ API-ға қарай өзгертіп қой
+      fetch(`${API_BASE_URL}/products`)
         .then(res => res.json())
         .then(data => {
           if (data.success) {
@@ -69,7 +67,6 @@ const Cart = () => {
 
   return (
     <>
-      {/* Header */}
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
